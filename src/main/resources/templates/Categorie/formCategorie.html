@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire d'ajout d'une categorie</title>
+    <link href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <h2>Formulaire d'ajout d'une categorie</h2>
+        <form th:action="@{/categorie/save}" method="post">
+            <div class="Form-group">
+                <label>Designation : </label>
+                <input type="text" class="Form-control" name="designation"></input>
+            </div>
+            </br>
+            <input type="reset" value="Annuler" />&nbsp;&nbsp;
+            <button type="submit">Enregistrer</button>
+        </form>
+    </div>
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

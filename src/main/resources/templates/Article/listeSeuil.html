@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des articles en dessous du seuil</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h2>Liste des articles en dessous du seuil</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Catégorie</th>
+            <th>libellé</th>
+            <th>Prix</th>
+            <th>Quantité en stock</th>
+            <th>Quantité seuil</th>
+            <th>Date de création</th>
+            <th>Etat de la quantité</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="article:${listeSeuil}">
+            <td th:text="${article.id}"></td>
+            <td th:text="${article.categorie.designation}"></td>
+            <td th:text="${article.libelle}"></td>
+            <td th:text="${article.prix}"></td>
+            <td th:text="${article.qteStock}"></td>
+            <td th:text="${article.qteSeuil}"></td>
+            <td th:text="${article.dateCreation}"></td>
+            <td th:text="${article.etat}"></td>
+            <td>
+                <a th:href="@{/article/delete/{id}(id=${article.id})}" role="button">Effacer</a>
+                <a th:href="@{/article/edit/{id}(id=${article.id})}" role="button">Editer</a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

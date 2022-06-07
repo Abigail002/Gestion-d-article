@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Approvisionnement</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h2>Liste des approvisionnements effectués</h2>
+    <table class="table table-success table-striped">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Article</th>
+            <th>Date d'approvisionnement</th>
+            <th>Quantité approvisionnée</th>
+            <th>Actions </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="approvisionnement:${Liste_Approvisionnements}">
+            <td th:text="${approvisionnement.id}"></td>
+            <td th:text="${approvisionnement.article.libelle}"></td>
+            <td th:text="${approvisionnement.dateAppro}"></td>
+            <td th:text="${approvisionnement.qteAppro}"></td>
+            <td>
+                <a th:href="@{/approvisionnement/delete/{id}(id=${approvisionnement.id})}" role="button" class="btn btn-danger">Effacer</a>
+                <a th:href="@{/approvisionnement/edit/{id}(id=${approvisionnement.id})}" role="button" class="btn btn-info">Editer</a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

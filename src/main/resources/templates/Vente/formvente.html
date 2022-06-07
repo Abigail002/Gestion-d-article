@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire d'ajout d'une vente</title>
+    <link href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+    <h2>Formulaire d'ajout d'une vente</h2>
+    <form th:action="@{/vente/save}" method="post">
+        <div class="Form-group">
+            <label>Vente</label>
+            <select class="form-select" name="article_id" required>
+                <option value="">..Sélectionnez un article à vendre..</option>
+                <option th:each="article:${Liste_Articles}"
+                        th:value="${article.id}"
+                        th:utext="${article.libelle}">
+                </option>
+            </select>
+        </div>
+        <div>
+            <label>Quantité : </label>
+            <input type="number" class="Form-control" name="qteVente" placeholder="25"></input>
+        </div>
+        </br>
+        <input type="reset" value="Annuler" />&nbsp;&nbsp;
+        <button type="submit">Enregistrer</button>
+    </form>
+</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

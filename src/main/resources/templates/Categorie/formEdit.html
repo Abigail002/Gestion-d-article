@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulaire de mise à jour d'une catégorie</title>
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <h2>Formulaire de mise à jour d'une catégorie</h2>
+  <form th:action="@{/categorie/update}" th:object="${Une_categorie}" method="post">
+    <div class="Form-group">
+      <input type="hidden" th:field="*{id}" class="Form-control">
+    </div>
+    <div class="Form-group">
+      <label>Désignation : </label>
+      <input type="text" th:field="*{designation}" class="Form-control">
+    </div>
+    </br>
+    <button type="submit"><a href="../show">Enregister</a></button>
+  </form>
+</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

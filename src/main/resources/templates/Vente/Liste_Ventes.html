@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vente</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h2>Liste des ventes effectuées</h2>
+    <table class="table table-light table-striped">
+        <thead>
+        <tr>
+            <th >Id</th>
+            <th>Article</th>
+            <th>Date de la vente</th>
+            <th>Quantité vendue</th>
+            <th>Actions </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="vente:${Liste_Ventes}">
+            <td th:text="${vente.id}"></td>
+            <td th:text="${vente.article.libelle}"></td>
+            <td th:text="${vente.dateVente}"></td>
+            <td th:text="${vente.qteVente}"></td>
+            <td>
+                <a th:href="@{/vente/delete/{id}(id=${vente.id})}" role="button" class="btn btn-danger">Effacer</a>
+                <a th:href="@{/vente/edit/{id}(id=${vente.id})}" role="button" class="btn btn-info">Editer</a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
